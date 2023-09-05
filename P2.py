@@ -14,6 +14,7 @@ def n10to20():
         
 # n10to20()
 
+
 # ------------------------------------------------------------------------
 # EJ 2
 # Escriba un programa que imprima por pantalla todas las fichas del dominó, una
