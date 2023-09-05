@@ -31,7 +31,15 @@ def npares_m(n: int,m: int) -> int:
         print(n)
     return npares_m(n-1,m)
 
-# npares_m(25,12)
+def npares_m(m: int, n:int) -> int:
+    if n == 0:
+        return
+    if (m%2 == 0):
+        print(m)
+        return npares_m(m+2,n-1)
+    return npares_m(m+1,n)
+    
+npares_m(25,5)
 
 # ------------------------------------------------------------------------
 # EJ 4
