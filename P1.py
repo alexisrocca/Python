@@ -24,13 +24,15 @@ def npares(n: int) -> int:
 # EJ 3
 # Escriba un programa que imprima los primeros n números pares mayores que m.
 
-def npares_m(n: int,m: int) -> int:
-    if n == 0:
-        return 
-    if (n%2 == 0) and (n>m):
-        print(n)
-    return npares_m(n-1,m)
+# Interpretacion 1
+# def npares_m(n: int,m: int) -> int:
+#     if n == 0:
+#         return 
+#     if (n%2 == 0) and (n>m):
+#         print(n)
+#     return npares_m(n-1,m)
 
+# Interpretacion 2
 def npares_m(m: int, n:int) -> int:
     if n == 0:
         return
