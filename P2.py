@@ -97,3 +97,18 @@ def tablaConversion() -> None:
 # meros n números triangulares, junto con sus respectivos índices. El número triangular n se
 # obtiene mediante la suma de los números naturales desde 1 hasta n
 
+# numeros_triangulares: Int -> None
+def numeros_triangulares(n: int) -> None:
+    n_anterior = 0
+    for num in range(1,n+1):
+        print(f"{num} - {n_anterior + num}")
+        n_anterior = n_anterior + num
+        
+# numeros_triangulares(5)
+
+# ------------------------------------------------------------------------
+# EJ 7
+# Escriba una función que le pida al usuario que ingrese un número positivo. Si el
+# usuario ingresa cualquier cosa que no sea lo pedido se le debe informar de su error mediante
+# un mensaje y volver a pedirle el número, repitiendo este proceso hasta que ingrese lo pedido
+
