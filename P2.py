@@ -252,5 +252,51 @@ def passwd_C() -> bool:
 
 # Escriba una función que reciba un número natural e imprima todos los números
 # primos que hay menores o iguales que ese número.
+      
+# A) 
+# Defina una función es_primo que toma un número natural y verifica si es un número primo.
 
-        
+def es_primo(n: int) -> bool:
+    cant_divisiones = 1
+    divisible = 0
+    while cant_divisiones <= n:
+        if (n % cant_divisiones) == 0:
+           divisible += 1
+        cant_divisiones += 1    
+    return divisible == 2
+
+def es_primo(n: int) -> bool:
+    cant_divisiones = 1
+    divisible = 0
+    while cant_divisiones <= n:
+        if (n % cant_divisiones) == 0:
+           divisible += 1
+        cant_divisiones += 1    
+    return divisible == 2
+
+# print(es_primo(7))
+
+# B) 
+# Resuelva el problema usando la función definida en el punto anterior.
+
+def num_primos(num: int):
+    while num != 0:
+        if es_primo(num):
+            print(num)
+        num-=1
+
+# num_primos(25)
+
+# ------------------------------------------------------------------------
+# EJ 13
+
+# Escriba una función es_potencia_de_dos que reciba como parámetro un número natural
+# y devuelva True si el número es una potencia de 2 y False en caso contrario
+
+def es_potencia_de_dos(n: int) -> bool:
+    if (n == 0):
+        return False
+    while (n%2 == 0):
+        n = n/2
+    return n%2 == 0
+
