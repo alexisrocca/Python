@@ -298,5 +298,10 @@ def es_potencia_de_dos(n: int) -> bool:
         return False
     while (n%2 == 0):
         n = n/2
-    return n%2 == 0
+    return n == 1
 
+# es_potencia_de_dos(8)
+
+for num in range(10000):
+    if es_potencia_de_dos(num):
+        print(f"{num} - {es_potencia_de_dos(num)}")
