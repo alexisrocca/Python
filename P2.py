@@ -112,3 +112,145 @@ def numeros_triangulares(n: int) -> None:
 # usuario ingresa cualquier cosa que no sea lo pedido se le debe informar de su error mediante
 # un mensaje y volver a pedirle el número, repitiendo este proceso hasta que ingrese lo pedido
 
+def input_positivo() -> None:
+    n = 0
+    while not(n>0):
+        n = int(input("Ingrese un numero positivo: "))
+        if not(n>0):
+            print(f"{n} no es un numero positivo, por favor vuelva a intentarlo ...\n")
+    print(":)")
+    
+# input_positivo()
+
+# ------------------------------------------------------------------------
+# EJ 8
+# Escriba un programa que permita al usuario ingresar un conjunto de notas, pre-
+# guntando a cada paso si desea ingresar más notas, e imprima el promedio correspondiente al
+# finalizar la toma de datos
+
+def notas():
+    continuar = 's'
+    l_notas = []
+    prom = 0
+    while (continuar == 's') or (continuar == 'S'):
+        nota = int(input("Ingrese una nota numerica: "))
+        l_notas += [nota]
+        continuar = input("Desea ingresar mas notas? S/n: ")
+    for nota in l_notas:
+        prom += nota
+    prom = prom/len(l_notas)
+    print(f"El promedio es {prom}")
+    
+# notas()
+
+# ------------------------------------------------------------------------
+# EJ 9
+# Escriba un programa que pida dos números enteros. El programa pedirá de nuevo
+# el segundo número mientras no sea mayor que el primero. El programa terminará escribiendo
+# los dos números.
+
+def ej9():
+    a = int(input("Ingrese el primer numero: "))
+    b = 0
+    while not(a<b):
+        b = int(input("Ingrese el segundo numero: "))
+    print(f"Los numeros son: {a} y {b}")
+        
+# ej9()
+
+# ------------------------------------------------------------------------
+# EJ 10
+# Escriba una función que reciba dos números como parámetros y devuelva cuán-
+# tos múltiplos del primero hay que sean menores que el segundo.
+
+def ej10_A(a:int, b:int):
+    multiplo = 0
+    cont = 0
+    cant_operaciones = 0
+    while multiplo < b:
+        cant_operaciones += 1
+        cont += 1
+        multiplo = a * cont
+    # print(cont-1)
+    print(f"+ Cantidad de multiplos: {cont-1}")
+    print(f"  - Operaciones realizadas {cant_operaciones}\n")
+
+def ej10_B(a:int, b:int):
+    cont = 0
+    cant_operaciones = 0
+    for num in range(a,b+1):
+        cant_operaciones += 1
+        if (num%a == 0) and (num < b):
+            cont +=1
+    print(f"+ Cantidad de multiplos: {cont}")
+    print(f"  - Operaciones realizadas {cant_operaciones}\n")
+
+# print("\n-- Usando WHILE --")
+# ej10_A(3, 9) # Hay 2 multiplos del primero que son menores estrictos del segundo
+# ej10_A(2, 50) # Hay 24 multiplos del primero que son menores estrictos del segundo
+# ej10_A(2, 100) # Hay 49 multiplos del primero que son menores estrictos del segundo
+# print("\n-- Usando FOR --")
+# ej10_B(3, 9) # Hay 2 multiplos del primero que son menores estrictos del segundo
+# ej10_B(2, 50) # Hay 24 multiplos del primero que son menores estrictos del segundo
+# ej10_B(2, 100) # Hay 49 multiplos del primero que son menores estrictos del segundo
+
+# A pesar de dar el mismo resultado, el bucle For realiza mas operaciones de manera innecesaria,
+# que se ahorran haciendolo con el bucle While
+
+# ------------------------------------------------------------------------
+# EJ 11
+
+# A)
+# Escriba un programa que contenga una contraseña inventada. El programa debe pre-
+# guntarle al usuario la contraseña y no permitirle continuar hasta que la haya ingresado
+# correctamente.
+
+def passwd_A():
+    passwd = '123456'
+    entrada = ''
+    while entrada != passwd:
+        entrada = input("\nIntroduzca la contraseña: ")
+    print("Sesion Iniciada!")
+
+# passwd_A()
+
+# B)
+# Modifique el programa anterior para que solamente permita como máximo una cantidad
+# fija de intentos
+
+def passwd_B():
+    passwd = '123456'
+    entrada = ''
+    intentos = 3
+    while (entrada != passwd) and (intentos != 0):
+        entrada = input(f"\n[Intentos restantes: {intentos}]\n - Introduzca la contraseña: ")
+        intentos -=1
+    if entrada != passwd:
+        print("\n[!] Sin intentos restantes...")
+    else:
+        print("\nSesion Iniciada!")
+
+# passwd_B()
+
+# C)
+# Modifique el programa anterior para que sea una función que devuelva si el usuario in-
+# gresó la contraseña correctamente o no, mediante un valor booleano (True o False).
+
+def passwd_C() -> bool:
+    passwd = '123456'
+    entrada = ''
+    intentos = 3
+    while (entrada != passwd) and (intentos != 0):
+        entrada = input(f"\n[Intentos restantes: {intentos}]\n - Introduzca la contraseña: ")
+        intentos -=1
+    return entrada == passwd
+
+# print(passwd_C())
+
+# ------------------------------------------------------------------------
+# EJ 12
+
+# Escriba una función que reciba un número natural e imprima todos los números
+# primos que hay menores o iguales que ese número.
+
+        
