@@ -172,7 +172,7 @@ def ej10_A(a:int, b:int):
         cont += 1
         multiplo = a * cont
     # print(cont-1)
-    print(f"+ Cantidad de multiplos: {cont-1}")
+    print(f"+ Cantidad de multiplos de {a} menores a {b}: {cont-1}")
     print(f"  - Operaciones realizadas {cant_operaciones}\n")
 
 def ej10_B(a:int, b:int):
@@ -182,7 +182,7 @@ def ej10_B(a:int, b:int):
         cant_operaciones += 1
         if (num%a == 0) and (num < b):
             cont +=1
-    print(f"+ Cantidad de multiplos: {cont}")
+    print(f"+ Cantidad de multiplos de {a} menores a {b}: {cont}")
     print(f"  - Operaciones realizadas {cant_operaciones}\n")
 
 # print("\n-- Usando WHILE --")
