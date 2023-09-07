@@ -290,6 +290,7 @@ def num_primos(num: int):
 # ------------------------------------------------------------------------
 # EJ 13
 
+# A)
 # Escriba una función es_potencia_de_dos que reciba como parámetro un número natural
 # y devuelva True si el número es una potencia de 2 y False en caso contrario
 
@@ -302,6 +303,13 @@ def es_potencia_de_dos(n: int) -> bool:
 
 # es_potencia_de_dos(8)
 
-for num in range(10000):
-    if es_potencia_de_dos(num):
-        print(f"{num} - {es_potencia_de_dos(num)}")
+# for num in range(10000):
+#     if es_potencia_de_dos(num):
+#         print(f"{num} - {es_potencia_de_dos(num)}")
+
+# B)
+# Escriba una función que, dados dos números naturales pasados como parámetros, de-
+# vuelva la suma de todas las potencias de 2 que hay en el rango formado por esos números
+# (0 si no hay ninguna potencia de 2 entre los dos). Utilice la función es_potencia_de_dos
+# descripta en el punto anterior
+
