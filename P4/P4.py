@@ -63,3 +63,4 @@ print(lisandro([2,3,10,4,5,7]))
 """ Ejercicio 3. Escriba una función que tome una lista ordenada y un elemento. Si el elemento
 se encuentra en la lista, debe encontrar su posición mediante búsqueda binaria y devolverlo. Si
 no se encuentra, debe agregarlo a la lista en la posición correcta y devolver esa nueva posició """
+
