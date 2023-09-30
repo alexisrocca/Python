@@ -97,5 +97,20 @@ def b_binaria(l: list,e) -> list:
     l.sort()
     return b_binaria(l,e)
     
-print(b_binaria([4,1,6,8,5],-1))
+# print(b_binaria([4,1,6,8,5],-1))
+""" 
+Ejercicio 4. Escriba una función que reciba una lista de tuplas y devuelva un diccionario en
+donde las claves sean los primeros elementos de las tuplas y los valores una lista con los
+segundos """
 
+def tup_dic(lt: list) -> dict:
+  dicc = {}
+  for x,y in lt:
+    keys = []
+    if x in dicc.keys():
+      keys = dicc[x]  
+    keys.append(y)
+    dicc[x] = keys
+  return dicc
+
+# print(tup_dic([('Hola','don Pepito'),('Hola','don Jose'),('Buenos','Dias')]))
