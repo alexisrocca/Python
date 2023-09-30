@@ -4,7 +4,7 @@ b) busque la primera coincidencia del elemento en la lista y devuelva su posici�
 c) utilizando la función anterior, busque todos los elementos que coincidan con el que fue
 recibido como parámetro y devuelva una lista con las respectivas posiciones. """
 
-def contador_elem(l: list,n: any):
+def contador_elem(l: list,n):
   x = 0
   cont = 0
   while x < (len(l)):
@@ -15,7 +15,7 @@ def contador_elem(l: list,n: any):
 
 # print(contador_elem([9,9,9,9,5,9],9))
 
-def indice(l:list,n:any):
+def indice(l:list,n):
   x = 0
   aux = 0
   while aux != 1 and x < (len(l)):
@@ -26,7 +26,7 @@ def indice(l:list,n:any):
 
 # print(indice([2,3,9,9,5,9],5))
 
-def search_and_list(l:list,n:any):
+def search_and_list(l:list,n):
   x = 0
   r_list = []
   while x < (len(l)):
@@ -64,7 +64,7 @@ def search_index(l:list):
 se encuentra en la lista, debe encontrar su posición mediante búsqueda binaria y devolverlo. Si
 no se encuentra, debe agregarlo a la lista en la posición correcta y devolver esa nueva posició """
 
-def b_binaria(l: list,e) -> list:
+def b_binaria(l: list,e):
   
   l.sort()
   mitad_l = len(l) // 2
