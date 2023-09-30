@@ -42,3 +42,9 @@ def elemSum(l: list) -> list:
 # Escriba una función llamada elimina que tome una lista y elimine el primer y
 # último elemento de la lista. La función debe devolver una nueva lista con los elementos que no
 # fueron eliminados.
+
+def elimina(l: list) -> list:
+    return l[1:(len(l) - 1)]
+
+# print(elimina([1,2,3,4,5,6]))
+
