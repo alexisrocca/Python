@@ -75,7 +75,7 @@ def b_binaria(l: list,e):
   print(pos_l)
   while largo != 1:
     
-    if e >= l[mitad_l] and (largo != 1):
+    if e >= aux_l[mitad_l] and (largo != 1):
       pos_l = pos_l[mitad_l:]
       aux_l = aux_l[mitad_l:]
       mitad_l = len(aux_l[mitad_l:]) //2
@@ -87,7 +87,6 @@ def b_binaria(l: list,e):
       mitad_l = len(aux_l[:mitad_l]) //2
 
     largo = len(aux_l)
-  # return aux_l[0] == e
   
   if aux_l[0] == e:
     return pos_l[0]
@@ -98,6 +97,31 @@ def b_binaria(l: list,e):
     return b_binaria(l,e)
     
 # print(b_binaria([4,1,6,8,5],-1))
+
+def bBin(l: list, e):
+  l.sort()
+  mitad_l = len(l) // 2
+  aux_l = l
+  largo = len(aux_l)
+
+  if l == []:
+    return False
+    
+  while largo != 1:
+    
+    if e >= aux_l[mitad_l] and (largo != 1):
+      aux_l = aux_l[mitad_l:]
+      mitad_l = len(aux_l[mitad_l:]) //2
+
+    elif e < aux_l[mitad_l]  and (largo != 1):
+      
+      aux_l = aux_l[:mitad_l]
+      mitad_l = len(aux_l[:mitad_l]) //2
+
+    largo = len(aux_l)
+  
+  return aux_l[0] == e
+
 """ 
 Ejercicio 4. Escriba una función que reciba una lista de tuplas y devuelva un diccionario en
 donde las claves sean los primeros elementos de las tuplas y los valores una lista con los
@@ -107,10 +131,29 @@ def tup_dic(lt: list) -> dict:
   dicc = {}
   for x,y in lt:
     keys = []
-    if x in dicc.keys():
-      keys = dicc[x]  
+    if bBin(list(dicc.keys()),x): # Uso busqueda binaria para reemplazar el uso de "if x in dicc.keys()"
+      keys = dicc[x] 
     keys.append(y)
     dicc[x] = keys
   return dicc
 
-print(tup_dic([('Hola','don Pepito'),('Hola','don Jose'),('Buenos','Dias')]))
+# No se si seria conveniente usar la busqueda binaria ya que eso implica que tengo que transformar 
+# el objeto dicc_keys que devuelve dicc.keys() a una lista lo que implica que python recorra el objeto
+# elemento por elemento lo que seria similar a "if x in dicc.keys()", sumado a que luego realiza la bBinaria.
+ 
+# print(tup_dic([('Hola','don Pepito'),('Hola','don Jose'),('Buenos','Dias')]))
+
+# Ejercicio 5
+
+def str_dict(s: str) -> dict:
+  dicc = {}
+  s_l = s.lower().split(" ")
+  for palabra in s_l:
+    if palabra in dicc.keys():
+      n = dicc[palabra] + 1
+      dicc[palabra] = n
+    else:
+      dicc[palabra] = 1
+  return dicc
+
+print(str_dict("Hola que tal hola funciona esto? hola jaja"))
