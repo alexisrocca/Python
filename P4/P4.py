@@ -31,7 +31,7 @@ def search_and_list(l:list,n):
   r_list = []
   while x < (len(l)):
     if l[x] == n:
-      r_list.append(x)  
+      r_list.append(x)
     x+=1
   return r_list
 
@@ -113,4 +113,4 @@ def tup_dic(lt: list) -> dict:
     dicc[x] = keys
   return dicc
 
-# print(tup_dic([('Hola','don Pepito'),('Hola','don Jose'),('Buenos','Dias')]))
+print(tup_dic([('Hola','don Pepito'),('Hola','don Jose'),('Buenos','Dias')]))
