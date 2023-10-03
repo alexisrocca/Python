@@ -122,13 +122,13 @@ def bBin(l: list, e):
 	
 	return aux_l[0] == e
 
-def bBin_Resolucion(l: list, e: int) -> int:
-	l.sort()
+def iBin_Resolucion(l: list, e: int) -> int:
+	l.sort() # Agrego esto para que se puedan utilizar listas de numeros desordenadas
 	i = 0
 	f = len(l)
 	m = (i + f) // 2
 	print(l)
-	
+ 
 	while i != f and l[m] != e:
 			if (e > l[m]):
 					i = m+1
@@ -141,7 +141,8 @@ def bBin_Resolucion(l: list, e: int) -> int:
 			print(l)
 	return m
 	
-print(bBin_Resolucion([1,7,4,3,2,6],7))
+# print(iBin_Resolucion([1,7,4,3,2,6],7))
+# print(iBin_Resolucion([],7))
 
 """ 
 Ejercicio 4. Escriba una función que reciba una lista de tuplas y devuelva un diccionario en
