@@ -149,14 +149,12 @@ segundos """
 def tup_dic(lt: list) -> dict:
 	dicc = {}
 	for x,y in lt:
-		keys = []
-		if x in dicc.keys():
-			keys = dicc[x] 
-		keys.append(y)
-		dicc[x] = keys
+		if x not in dicc:
+			dicc[x] = []
+		dicc[x].append(y)
 	return dicc
  
-# print(tup_dic([('Hola','don Pepito'),('Hola','don Jose'),('Buenos','Dias')]))
+print(tup_dic([('Hola','don Pepito'),('Hola','don Jose'),('Buenos','Dias')]))
 
 # Ejercicio 5
 # a)
@@ -197,14 +195,14 @@ def dados(ct: int) -> dict:
         for n in range(2):
             tirada.append(randint(1,6))
         print(tirada)
-        if (tirada[0]+tirada[1]) in dicc.keys():
-            n = dicc[tirada[0]+tirada[1]] + 1
-            dicc[tirada[0]+tirada[1]] = n
+        if (tirada[0]+tirada[1]) in dicc:
+            dicc[tirada[0]+tirada[1]] = dicc[tirada[0]+tirada[1]] + 1
         else:
             dicc[tirada[0]+tirada[1]] = 1
     return dicc
             
-print(dados(5))
+# print(dados(5))
 
 # Evaluar si se podria realizar de otra forma que no sea utilizando el operador "in", como por ejemplo
 # usando la busqueda binaria
+
