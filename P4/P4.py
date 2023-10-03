@@ -1,3 +1,6 @@
+from random import randint
+
+
 """ Ejercicio 1. Escriba una función que, dados una lista desordenada y un elemento:
 a) devuelva la cantidad de apariciones del elemento recibido en la lista;
 b) busque la primera coincidencia del elemento en la lista y devuelva su posición;
@@ -90,7 +93,6 @@ def b_binaria(l: list,e):
 	
 	if aux_l[0] == e:
 		return pos_l[0]
-	
 	else:
 		l.append(e)
 		l.sort()
@@ -98,29 +100,24 @@ def b_binaria(l: list,e):
 		
 # print(b_binaria([4,1,6,8,5],-1))
 
-def bBin(l: list, e):
+def bBin(l: list[int], e: int):
 	l.sort()
-	mitad_l = len(l) // 2
-	aux_l = l
-	largo = len(aux_l)
+	i = 0
+	f = len(l)
+	m = (i +f)//2
+	len_list = len(l)
+	# print(l)
+	while i !=f and l[m] != e:
+		# print(m)
+		if e > l[m] and (m+1<len_list):
+			i = m+1
+		else:
+			f = m
+		m = (i+f)//2
+	# print(m)
+	return l[m] == e
 
-	if l == []:
-		return False
-		
-	while largo != 1:
-		
-		if e >= aux_l[mitad_l] and (largo != 1):
-			aux_l = aux_l[mitad_l:]
-			mitad_l = len(aux_l[mitad_l:]) //2
-
-		elif e < aux_l[mitad_l]  and (largo != 1):
-			
-			aux_l = aux_l[:mitad_l]
-			mitad_l = len(aux_l[:mitad_l]) //2
-
-		largo = len(aux_l)
-	
-	return aux_l[0] == e
+# print(bBin([1,6,4,2,7],999))
 
 def iBin_Resolucion(l: list, e: int) -> int:
 	l.sort() # Agrego esto para que se puedan utilizar listas de numeros desordenadas
@@ -130,15 +127,15 @@ def iBin_Resolucion(l: list, e: int) -> int:
 	print(l)
  
 	while i != f and l[m] != e:
-			if (e > l[m]):
-					i = m+1
-			else:
-					f = m
-			m = (i + f) // 2
+		if (e > l[m]):
+			i = m+1
+		else:
+			f = m
+		m = (i + f) // 2
 	if i == f:
-			#l.insert(i,e)
-			l[i:f] = [e]
-			print(l)
+		#l.insert(i,e)
+		l[i:f] = [e]
+		print(l)
 	return m
 	
 # print(iBin_Resolucion([1,7,4,3,2,6],7))
@@ -153,15 +150,11 @@ def tup_dic(lt: list) -> dict:
 	dicc = {}
 	for x,y in lt:
 		keys = []
-		if bBin(list(dicc.keys()),x): # Uso busqueda binaria para reemplazar el uso de "if x in dicc.keys()"
+		if x in dicc.keys():
 			keys = dicc[x] 
 		keys.append(y)
 		dicc[x] = keys
 	return dicc
-
-# No se si seria conveniente usar la busqueda binaria ya que eso implica que tengo que transformar 
-# el objeto dicc_keys que devuelve dicc.keys() a una lista lo que implica que python recorra el objeto
-# elemento por elemento lo que seria similar a "if x in dicc.keys()", sumado a que luego realiza la bBinaria.
  
 # print(tup_dic([('Hola','don Pepito'),('Hola','don Jose'),('Buenos','Dias')]))
 
@@ -192,3 +185,26 @@ def char_dict(s: str) -> dict:
 # print(char_dict("Hola que tal hola funciona esto? hola jaja"))
 
 # c)
+""" 
+Escriba una función que reciba una cantidad de iteraciones de una tirada de 2 dados a
+realizar y devuelva un diccionario en el cual las claves sean los resultados de la suma de
+los dados y los valores sean la cantidad de veces que se observa cada resultado. """
+
+def dados(ct: int) -> dict:
+    dicc = {}
+    for n in range(ct):
+        tirada = []
+        for n in range(2):
+            tirada.append(randint(1,6))
+        print(tirada)
+        if (tirada[0]+tirada[1]) in dicc.keys():
+            n = dicc[tirada[0]+tirada[1]] + 1
+            dicc[tirada[0]+tirada[1]] = n
+        else:
+            dicc[tirada[0]+tirada[1]] = 1
+    return dicc
+            
+print(dados(5))
+
+# Evaluar si se podria realizar de otra forma que no sea utilizando el operador "in", como por ejemplo
+# usando la busqueda binaria
