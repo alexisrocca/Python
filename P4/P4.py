@@ -166,8 +166,10 @@ def tup_dic(lt: list) -> dict:
 
 # print(tup_dic([('Hola','don Pepito'),('Hola','don Jose'),('Buenos','Dias')]))
 
-# Ejercicio 5
-# a)
+""" 
+Ejercicio 5
+
+a) """
 
 
 def str_dict(s: str) -> dict:
@@ -181,9 +183,9 @@ def str_dict(s: str) -> dict:
     return dicc
 
 # print(str_dict("Hola que tal hola funciona esto? hola jaja"))
-
-# b)
-
+""" 
+b)
+ """
 
 def char_dict(s: str) -> dict:
     dicc = {}
@@ -194,15 +196,15 @@ def char_dict(s: str) -> dict:
         else:
             dicc[palabra] = 1
     return dicc
+
 # print(char_dict("Hola que tal hola funciona esto? hola jaja"))
 
 
-# c)
 """ 
+c)
 Escriba una función que reciba una cantidad de iteraciones de una tirada de 2 dados a
 realizar y devuelva un diccionario en el cual las claves sean los resultados de la suma de
 los dados y los valores sean la cantidad de veces que se observa cada resultado. """
-
 
 def dados(ct: int) -> dict:
     dicc = {}
@@ -219,9 +221,23 @@ def dados(ct: int) -> dict:
 
 # print(dados(5))
 
-# Evaluar si se podria realizar de otra forma que no sea utilizando el operador "in", como por ejemplo
-# usando la busqueda binaria
+""" 
+Ejercicio 6. Escriba una función que reciba un texto y devuelva un diccionario que, para
+cada caracter presente en el texto, almacene la cadena más larga en la que se encuentra ese
+caracter.
+"""
 
+def pml_dicc(s: str) -> dict:
+    dicc = {}
+    for palabra in s.split():
+        for letra in palabra.lower():
+            if letra not in dicc or len(palabra) > len(dicc[letra]):
+                dicc[letra] = palabra
+    return dicc                    
+
+texto = "Hoy es un hermoso dia de primavera"
+
+print(pml_dicc(texto))
 
 # CONJUNTOS
 """ 
