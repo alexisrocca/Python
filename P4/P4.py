@@ -64,8 +64,17 @@ def search_index(l: list):
                 pos = x
     return (mayor, pos)
 
+def search_index(l: list):
+    mayor = l[0]
+    pos = 0
+    for index in range(1, len(l)):
+        if mayor < l[index - 1]:
+            mayor = l[index]
+            pos =  index
+    return (mayor, pos)
 
-# print(search_index([2,3,10,4,5,7]))
+
+print(search_index([2,3,10,4,5,7]))
 
 
 """ Ejercicio 3. Escriba una función que tome una lista ordenada y un elemento. Si el elemento
@@ -237,7 +246,7 @@ def pml_dicc(s: str) -> dict:
 
 texto = "Hoy es un hermoso dia de primavera"
 
-print(pml_dicc(texto))
+# print(pml_dicc(texto))
 
 # CONJUNTOS
 """ 
