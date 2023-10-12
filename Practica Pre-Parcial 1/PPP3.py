@@ -75,7 +75,8 @@ def bBinaria(l: list, e: int) -> bool:
         m = (i+f)//2
     return l[m] == e
 
-# print(bBinaria([1,2,3,4,5,6,7,8,9],8))
+# lista = sorted(["hola","que","tal","como","estas"])
+# print(bBinaria(lista,"hola"))
 
 """ Ejercicio 9. Escriba un programa que tenga una función que tome una cadena y muestre
 cada caracter que la forma del último al inicial """
@@ -176,8 +177,14 @@ def poker(t: list) -> bool:
         t[2][0] == t[3][0]
         )
 
-for n in range(50000):
-    isPoker = poker(nTiradasBarajaFrancesa(4))
-    if isPoker:
-        print(isPoker)
+def aLotOfPoker():
+    p=0
+    for n in range(500000):
+        isPoker = poker(nTiradasBarajaFrancesa(4))
+        if isPoker:
+            p +=1
+    print(f'Hiciste Poker {p} veces!')
+
+aLotOfPoker()
+
 # print(poker([(6,'Corazones'),(6,'Picas'),(6,'Trebol'),(6,'Diamante')]))
