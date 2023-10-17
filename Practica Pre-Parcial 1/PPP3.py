@@ -185,6 +185,6 @@ def aLotOfPoker():
             p +=1
     print(f'Hiciste Poker {p} veces!')
 
-aLotOfPoker()
+# aLotOfPoker()
 
 # print(poker([(6,'Corazones'),(6,'Picas'),(6,'Trebol'),(6,'Diamante')]))
